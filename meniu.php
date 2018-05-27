@@ -117,6 +117,8 @@ session_destroy();
 		</form>
 	</div>
 
+	<div id="showResult"></div>
+
 	<script type="text/javascript">
 		$('li > a').click(function (e) {
 	        e.preventDefault();
@@ -124,11 +126,12 @@ session_destroy();
 	        $('div > a').click(function (e) {
 	        	e.preventDefault();
 	        	var getAction = $(this).text();
-	        	console.log('getMenuItem: ', getMenuItem);
-	        	console.log('getAction: ', getAction);
+	        	//console.log('getMenuItem: ', getMenuItem);
+	        	//console.log('getAction: ', getAction);
 	        	if(getMenuItem.includes("Plan de invatamant") && getAction == "Import") {
-	        		console.log('e aici!!!!');
 	        		document.getElementById('importPlan').style.display = 'block';
+	        	} else {
+	        		document.getElementById('importPlan').style.display = 'none';
 	        	}
 
 	        	// TRIMITEM OPTIUNILE SELECTATE IN BACK-END
@@ -137,8 +140,8 @@ session_destroy();
 	        		url: 'helper.php',
 	        		data: { MenuItem: getMenuItem, Action: getAction},
 	        		success: function(result){ 
-	        			console.log('e ok!', result);
-	        			//$('#showResult').html(result);
+	        			//console.log(result);
+	        			$('#showResult').html(result);
 	        		}
 	        	});
 	        });
