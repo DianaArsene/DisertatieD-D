@@ -93,6 +93,7 @@ session_destroy();
 	<!-- END OF MENIU-->
 
 	<div id="importPlan" class="container modificariContainer">
+		<!-- Aici e sectiunea de incarcare a planului de invatamant -->
 		<form action="import_plan.php" method="post" enctype="multipart/form-data">
 			<p class="titlu">Import Plan de Invatamant</p>
 			<div class="form-group row rowDiv">
@@ -117,8 +118,10 @@ session_destroy();
 			 </div>
 			<button type="submit" value="Import Image" class="btn submitBtn">Import</button>
 		</form>
+		<!-- SFARSIT sectiune de import-->
 	</div>
 
+	<!-- Sectiune pentru afisarea planului de invatamant-->
 	<div id="showResult"></div>
 
 	<script type="text/javascript">
