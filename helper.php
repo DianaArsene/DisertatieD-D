@@ -15,6 +15,7 @@
 	if (strpos($menuItem, 'Plan de invatamant') !== false && strpos($action, 'Vizualizare') !== false) {
     	//echo 'e ok';
     	?>
+
     		<table class="table">
     		  <thead class="thead-light">
     		    <tr>
@@ -36,7 +37,7 @@
 
     		    </tr>
     		  </thead>
-    		  <tbody>
+    		  <tbody class="tableColor">
     		  <?php 
     		  	$result = mysql_query("SELECT * FROM plan_invatamant");
     		  	
@@ -56,7 +57,11 @@
 	    		      echo $rows2["Nume"];?></td>
 	    		      <td><?php echo $rows["Cod"];?></td>
 	    		      <td><?php echo $rows["Tip"];?></td>
-	    		      <td><?php echo $rows["Id_disciplina"];?></td>
+	    		      <td><?php
+	    		      		$idDisciplina = $rows["Id_disciplina"];
+	    		      		$result4 = mysql_query("SELECT Nume FROM disciplina WHERE Id = '$idDisciplina' ");
+	    		      		$rows4 = mysql_fetch_array($result4);
+	    		      		echo $rows4["Nume"];    ?></td>
 	    		      <td><?php echo $rows["Semestru"];?></td>
 	    		      <td><?php echo $rows["Curs"];?></td>
 	    		      <td><?php echo $rows["Seminar"];?></td>
@@ -72,7 +77,14 @@
 	    		  <?php }?>
     		  </tbody>
     		</table>
+    	<form action="download_plan.php" method="post">
+    		<input type="submit" name="export" class="btn downloadBtn" value="Export" />
+		</form>
     	<?php
+	} else if(strpos($menuItem, 'Plan de invatamant') !== false && strpos($action, 'Actualizare') !== false) {
+	?>
+
+	<?php
 	}	
 	//echo 'menuItem ' . $menuItem . ' action ' . $action;
 ?>
