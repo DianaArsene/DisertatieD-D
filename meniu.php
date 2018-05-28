@@ -4,6 +4,15 @@ $_SESSION["member_id"] = "";
 session_destroy();
 //header("Location: ./");
 //echo 'ggggg';
+
+error_reporting(E_ALL ^ E_DEPRECATED);
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db = "erp";
+
+mysql_connect($host, $user, $pass);
+mysql_select_db($db);
 ?>
 
 <html>
@@ -100,9 +109,12 @@ session_destroy();
 				<label class="col-sm-2 col-form-label">An universitar</label>
 				<select id="anUniv" name="anUniv" class="col-sm-4">
 					<option value=""></option>
-					<option value="2017/2018">2017/2018</option>
-					<option value="2018/2019">2018/2019</option>
-					<option value="2019/2020">2019/2020</option>
+				<?php 
+					$result = mysql_query("SELECT Nume FROM an_invatamant");
+					while($rows = mysql_fetch_array($result)) {
+				  ?>
+					<option><?php echo $rows["Nume"]; ?></option>
+					<?php } ?>
 				</select>
 			</div>
 			<div class="form-group row rowDiv">
