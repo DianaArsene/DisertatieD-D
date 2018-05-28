@@ -191,6 +191,13 @@
 		color:white;
 	}
 
+	.downloadBtn {
+		background-color:#005cb3;
+		color:white;
+		margin-left: 50%;
+		margin-top: 20px;
+	}
+
 	.submitDiv {
 		padding-left: 15px;
 		padding-bottom: 20px;
@@ -207,4 +214,21 @@
 
 	#importPlan {
 		display: none;
+	}
+
+/*	body {
+		/* The image used */
+	    background-image: url("meniuImg.jpg");
+
+	    /* Full height */
+/*	    height: 100%; 
+
+	     Center and scale the image nicely 
+	    background-position: center;
+	    background-repeat: no-repeat;
+	    background-size: cover;
+	}*/
+
+	.tableColor {
+	    background:  #FFFFFF;
 	}
