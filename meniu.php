@@ -18,7 +18,7 @@ session_destroy();
 <body>
 
 	<!-- MENIU -->
-	<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #005cb3;">
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #005cb3;">
 
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
@@ -90,11 +90,13 @@ session_destroy();
 	    </span> -->
 	  </div>
 	</nav>
+	<!-- END OF MENIU-->
+
 	<div id="importPlan" class="container modificariContainer">
-		<form>
+		<form action="import_plan.php" method="post" enctype="multipart/form-data">
 			<p class="titlu">Import Plan de Invatamant</p>
 			<div class="form-group row rowDiv">
-				<label for="inputEmail3" class="col-sm-2 col-form-label">An universitar</label>
+				<label class="col-sm-2 col-form-label">An universitar</label>
 				<select id="anUniv" name="anUniv" class="col-sm-4">
 					<option value=""></option>
 					<option value="2017/2018">2017/2018</option>
@@ -103,17 +105,17 @@ session_destroy();
 				</select>
 			</div>
 			<div class="form-group row rowDiv">
-				<label for="inputEmail3" class="col-sm-2 col-form-label">An de studiu</label>
+				<label class="col-sm-2 col-form-label">An de studiu</label>
 				
-				<input type="email" class="form-control col-sm-4" id="inputEmail3" placeholder="An de studiu">
+				<input type="text" class="form-control col-sm-4" id="inputAnStudiu" placeholder="An de studiu">
 				
 			</div>
 			<div class="form-group row submitDiv">
 			    <label for="exampleInputFile class="col-sm-2 col-form-label"">Incarcati planul de invatamant</label>
-			    <input type="file" class="form-control-file col-sm-4" id="exampleInputFile" aria-describedby="fileHelp">
+			    <input type="file" class="form-control-file col-sm-4" id="exampleInputFile" aria-describedby="fileHelp" name="importedFile">
 			    <!--<small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small> -->
 			 </div>
-			<button type="submit" class="btn submitBtn">Submit</button>
+			<button type="submit" value="Import Image" class="btn submitBtn">Import</button>
 		</form>
 	</div>
 
@@ -126,8 +128,6 @@ session_destroy();
 	        $('div > a').click(function (e) {
 	        	e.preventDefault();
 	        	var getAction = $(this).text();
-	        	//console.log('getMenuItem: ', getMenuItem);
-	        	//console.log('getAction: ', getAction);
 	        	if(getMenuItem.includes("Plan de invatamant") && getAction == "Import") {
 	        		document.getElementById('importPlan').style.display = 'block';
 	        	} else {
