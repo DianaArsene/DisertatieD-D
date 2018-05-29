@@ -11,8 +11,8 @@ $user = "root";
 $pass = "";
 $db = "erp";
 
-mysql_connect($host, $user, $pass);
-mysql_select_db($db);
+$connect = mysqli_connect($host, $user, $pass, $db);
+
 ?>
 
 <html>
@@ -110,10 +110,10 @@ mysql_select_db($db);
 				<select id="anUniv" name="anUniv" class="col-sm-4">
 					<option value=""></option>
 				<?php 
-					$result = mysql_query("SELECT Nume FROM an_invatamant");
-					while($rows = mysql_fetch_array($result)) {
+					$result = mysqli_query($connect, "SELECT Nume FROM an_invatamant");
+					while($rows = mysqli_fetch_row($result)) {
 				  ?>
-					<option><?php echo $rows["Nume"]; ?></option>
+					<option><?php echo $rows[0]; ?></option>
 					<?php } ?>
 				</select>
 			</div>
