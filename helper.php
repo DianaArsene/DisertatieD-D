@@ -6,8 +6,7 @@
 	$pass = "";
 	$db = "erp";
 
-	mysql_connect($host, $user, $pass);
-	mysql_select_db($db);
+	$connect = mysqli_connect($host, $user, $pass, $db);
 
 	$menuItem = $_POST['MenuItem'];
 	$action = $_POST['Action'];
@@ -39,38 +38,38 @@
     		  </thead>
     		  <tbody class="tableColor">
     		  <?php 
-    		  	$result = mysql_query("SELECT * FROM plan_invatamant");
+    		  	$result = mysqli_query($connect, "SELECT * FROM plan_invatamant");
     		  	
-    		  	while($rows = mysql_fetch_array($result)) {
+    		  	while($rows = mysqli_fetch_row($result)) {
 	    		  ?>
 	    		    <tr>
 	    		      <th scope="row"><?php
-	    		      		$anUniv = $rows["Id_an_invatamant"];
-	    		      		$result3 = mysql_query("SELECT Nume FROM an_invatamant WHERE Id = '$anUniv' ");
-	    		      		$rows3 = mysql_fetch_array($result3);
-	    		      		echo $rows3["Nume"];    ?></th>
-	    		      <td><?php echo $rows["An_studiu"];?></td>
+	    		      		$anUniv = $rows[1];
+	    		      		$result3 = mysqli_query($connect, "SELECT Nume FROM an_invatamant WHERE Id = '$anUniv' ");
+	    		      		$rows3 = mysqli_fetch_row($result3);
+	    		      		echo $rows3[0];    ?></th>
+	    		      <td><?php echo $rows[2];?></td>
 	    		      <td><?php
-	    		      		$idFacultate = $rows["Id_facultate"];
-	    		      		$result2 = mysql_query("SELECT Nume FROM facultate WHERE Id = '$idFacultate' ");
-	    		      		$rows2 = mysql_fetch_array($result2);
-	    		      echo $rows2["Nume"];?></td>
-	    		      <td><?php echo $rows["Cod"];?></td>
-	    		      <td><?php echo $rows["Tip"];?></td>
+	    		      		$idFacultate = $rows[3];
+	    		      		$result2 = mysqli_query($connect, "SELECT Nume FROM facultate WHERE Id = '$idFacultate' ");
+	    		      		$rows2 = mysqli_fetch_row($result2);
+	    		      echo $rows2[0];?></td>
+	    		      <td><?php echo $rows[4];?></td>
+	    		      <td><?php echo $rows[5];?></td>
 	    		      <td><?php
-	    		      		$idDisciplina = $rows["Id_disciplina"];
-	    		      		$result4 = mysql_query("SELECT Nume FROM disciplina WHERE Id = '$idDisciplina' ");
-	    		      		$rows4 = mysql_fetch_array($result4);
-	    		      		echo $rows4["Nume"];    ?></td>
-	    		      <td><?php echo $rows["Semestru"];?></td>
-	    		      <td><?php echo $rows["Curs"];?></td>
-	    		      <td><?php echo $rows["Seminar"];?></td>
-	    		      <td><?php echo $rows["Laborator"];?></td>
-	    		      <td><?php echo $rows["Proiect"];?></td>
-	    		      <td><?php echo $rows["Puncte_credit"];?></td>
-	    		      <td><?php echo $rows["Evaluare"];?></td>
-	    		      <td><?php echo $rows["Nr_total_ore"];?></td>
-	    		      <td><?php echo $rows["Ore_preg_indiv"];?></td>
+	    		      		$idDisciplina = $rows[6];
+	    		      		$result4 = mysqli_query($connect, "SELECT Nume FROM disciplina WHERE Id = '$idDisciplina' ");
+	    		      		$rows4 = mysqli_fetch_row($result4);
+	    		      		echo $rows4[0];    ?></td>
+	    		      <td><?php echo $rows[7];?></td>
+	    		      <td><?php echo $rows[8];?></td>
+	    		      <td><?php echo $rows[9];?></td>
+	    		      <td><?php echo $rows[10];?></td>
+	    		      <td><?php echo $rows[11];?></td>
+	    		      <td><?php echo $rows[12];?></td>
+	    		      <td><?php echo $rows[13];?></td>
+	    		      <td><?php echo $rows[14];?></td>
+	    		      <td><?php echo $rows[15];?></td>
 
 	    		    </tr>
     		   
