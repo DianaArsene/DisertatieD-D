@@ -106,7 +106,7 @@
     		  </thead>
     		  <tbody class="tableColor">
     		  <?php 
-    		  	$result = mysqli_query($connect, "SELECT * FROM plan_invatamant");
+    		  	$result = mysqli_query($connect, "SELECT * FROM nota_comanda");
     		  	
     		  	while($rows = mysqli_fetch_row($result)) {
 	    		  ?>
@@ -116,10 +116,10 @@
 	    		      		$result1 = mysqli_query($connect, "SELECT Nume FROM disciplina WHERE Id = '$idDisc' ");
 	    		      		$rows1 = mysqli_fetch_row($result1);
 	    		      		echo $rows1[0];    ?></th>
-	    		      <td><?php $idFacultate = $rows[2];
-	    		      		$result2 = mysqli_query($connect, "SELECT Nume FROM facultate WHERE Id = '$idFacultate' ");
+	    		      <td><?php $idFac = $rows[2];
+	    		      		$result2 = mysqli_query($connect, "SELECT Nume FROM facultate WHERE Id = '$idFac' ");
 	    		      		$rows2 = mysqli_fetch_row($result2);
-	    		      echo $rows2;?></td>
+	    		      echo $rows2[0];?></td>
 	    		      <td><?php $idForma = $rows[3];
 	    		      		$result3 = mysqli_query($connect, "SELECT Nume FROM forme_invatamant WHERE Id = '$idForma' ");
 	    		      		$rows3 = mysqli_fetch_row($result3);
@@ -146,7 +146,7 @@
     		  </tbody>
     		</table>
     	<form action="download_plan.php" method="post">
-    		<input type="submit" name="export" class="btn downloadBtn" value="Export" />
+    		<input type="submit" name="exportNC" class="btn downloadBtn" value="Export" />
 		</form>
 	<?php
 	}	
