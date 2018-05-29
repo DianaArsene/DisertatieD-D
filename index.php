@@ -39,7 +39,7 @@ if(!empty($_POST["login"])) {
 					<div class="header_login"></div>
 					</div>
 					<div>
-					<div class="image_login"><img src="firstpage.png"></div>
+					<div class="image_login"><img src="acs.jpg"></div>
 					</div>
 					<form action="" method="post" id="frmLogin">
 						<div class="title_wrapper">
@@ -59,9 +59,9 @@ if(!empty($_POST["login"])) {
 						</div>       
 					</form>
 					
-<?php } else { 
-	header("Location: meniu.php"); 
- } ?>
+<?php } else { ?>
+<div class="member-dashboard">You have Successfully logged in!. <a href="logout.php">Logout</a></div>
+<?php } ?>
 
 						
 					
