@@ -59,9 +59,9 @@ if(!empty($_POST["login"])) {
 						</div>       
 					</form>
 					
-<?php } else { ?>
-<div class="member-dashboard">You have Successfully logged in!. <a href="logout.php">Logout</a></div>
-<?php } ?>
+<?php } else { 
+	header("Location: meniu.php"); 
+ } ?>
 
 						
 					

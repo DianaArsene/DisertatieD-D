@@ -8,12 +8,8 @@
 
 require_once 'Classes/PHPExcel.php';
 
-//numele fisierului incarcat
-$testFile = basename($_FILES["importedFile"]["name"]);
-echo "testFile: " . $testFile;
-
 //getting the xls file
-$myFile = 'plan_inv.xls'; // numele 'plan_inv.xls' trebuie inlocuit cu variabila $testFile 
+$myFile = 'plan_inv.xls';
 $excelReader = PHPExcel_IOFactory::createReaderForFile($myFile);
 $excelObject = $excelReader->load($myFile);
 $myWorksheet = $excelObject->getActiveSheet();
