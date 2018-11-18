@@ -23,6 +23,12 @@
 	  position: relative;
 	}
 
+	.StranUniv{
+		width:10px;
+		
+
+	}
+
 	.loginmodal-container input[type=text], input[type=password] {
 	  height: 44px;
 	  font-size: 16px;

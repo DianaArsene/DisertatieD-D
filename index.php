@@ -1,14 +1,14 @@
 <?php
 session_start();
 if(!empty($_POST["login"])) {
-	$conn = mysqli_connect("localhost", "root", "", "users");
+	$conn = mysqli_connect("localhost", "root", "", "erp");
 
 	$sql = "Select * from users where username = '" . $_POST["username"] . "' and password = '" . md5($_POST["password"]) . "'";
 	$result = mysqli_query($conn,$sql);
 	$user = mysqli_fetch_array($result);
 	if($user) {
 			$_SESSION["id"] = $user["id"];
-			
+			$_SESSION["user"] = $user["username"];
 			if(!empty($_POST["remember"])) {
 				setcookie ("user_login",$_POST["username"],time()+ (10 * 365 * 24 * 60 * 60));
 				setcookie ("password",$_POST["password"],time()+ (10 * 365 * 24 * 60 * 60));
@@ -39,7 +39,7 @@ if(!empty($_POST["login"])) {
 					<div class="header_login"></div>
 					</div>
 					<div>
-					<div class="image_login"><img src="acs.jpg"></div>
+                                            <div class="image_login"><img src="image.png"></div>
 					</div>
 					<form action="" method="post" id="frmLogin">
 						<div class="title_wrapper">
@@ -57,13 +57,18 @@ if(!empty($_POST["login"])) {
 						<div class="field-group">
 							<div><input type="submit" name="login" value="Login" class="btn btn-primary form-control"></span></div>
 						</div>       
-					</form>
-					
-<?php } else { ?>
-<div class="member-dashboard">You have Successfully logged in!. <a href="logout.php">Logout</a></div>
-<?php } ?>
-
-						
+					</form>		
+<?php } else { 
+	if($_SESSION["user"]=="admin")
+	{
+		header('Location: admin.php');
+		die();
+	}
+	else{
+		header('Location: meniu.php');
+	die;
+	}
+} ?>
 					
 </body>
 <footer>

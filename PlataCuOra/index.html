@@ -1,0 +1,37 @@
+<html>
+<head>
+<link href="utils/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="utils/bootstrap.min.js"></script>
+<script src="utils/jquery-3.3.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="indexStyle.css">
+<script>
+    function checkimportfile()
+    {
+        if ($('#numefisier').get(0).files.length === 0) 
+        {
+            alert ("No files selected."); 
+            window.location.href = "index.html";
+        }
+    }
+</script>
+</head>
+<body>
+  <div class="container">
+  <img src="fiap.jpg" alt="Snow">
+  <h1 class="titlu">Formular Plata cu Ora</h1>
+  <div>
+	<button onclick="location.href = 'formular.php';" type="button" class="btn1 btn-primary" style="font:bold; font-size:20px;" >Completeaza formular</button>
+	<form  onsubmit="return checkimportfile();" method="post" enctype="multipart/form-data">
+	<label class="btn2 btn-file" style="font:bold; font-size:20px;">Incarca formular</label>
+	<input type="file" class="btn3" value="Browse" style="font:bold; font-size:20px;" id="numefisier" name="numefisier">
+	<input type="submit" onclick="checkimportfile()" class="btn4" style="font:bold; font-size:20px;" value="Import"></button>
+	</form>
+  </div>
+ 
+</div> 
+</body>
+<footer>
+<div class="footer_style"</div>
+</footer>
+</html>
+

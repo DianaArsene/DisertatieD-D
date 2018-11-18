@@ -1,0 +1,153 @@
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: responsive;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: 100%;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn1 {
+  position: absolute;
+  top: 35%;
+  left: 15%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn2 {
+  position: absolute;
+  top: 18%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn3 {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  width:18%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn4 {
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width:18%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.container .titlu {
+  position: absolute;
+  top: 1%;
+  left: 10%;
+  color: white;
+  font-size: 48px;
+  padding: 12px 24px;
+}
+
+.container .btn1:hover {
+  background-color: black;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+.form-horizontal .control-label{
+    text-align: left;
+	margin-left: 5%;
+}
+.form-control{
+	width:100%;
+	text-align: center;
+}
+.col-sm-10{
+	width: 300px;
+	padding: 0px;
+}
+.col-sm-12{
+		text-align: center !important;
+		font-size:20px;
+}
+.stackem div {
+    width: 100%;
+}
+.thead-light{
+	background-color:#80ccff;
+}
+.tlight{
+	background-color:#80ccff;
+}
+.lastcollight{
+	background-color:#fbfcab;
+	text-align:center;
+}
+.lcollight{
+	background-color:#fcddee;
+	text-align:center;
+}
+.grcollight{
+	background-color:#bfb8bc;
+	text-align:center;
+}
+.container-footer {
+  position: responsive;
+  width: 100%;
+  margin-left:5%;
+}
+input, label {
+    display:block;
+}
+.form-group-footer{
+	margin-left: 5%;
+}
