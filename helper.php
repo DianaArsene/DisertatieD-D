@@ -10,15 +10,13 @@ $connect = mysqli_connect($host, $user, $pass, $db);
 
 $menuItem = $_POST['MenuItem'];
 $action = $_POST['Action'];
-$anUniv = $_POST['AnUniv'];
-$an_invatamant = $_POST['AnInv'];
-
-// extragem id-ul aferent anului universitar selectat
-$an = mysqli_query($connect, "SELECT Id FROM an_invatamant WHERE Nume = '$anUniv' "); 
-	$rowsAn = mysqli_fetch_row($an);
-
 
 if (strpos($menuItem, 'Plan de invatamant') !== false && strpos($action, 'Vizualizare') !== false) {
+	$anUniv = $_POST['AnUniv'];
+	$an_invatamant = $_POST['AnInv'];
+	// extragem id-ul aferent anului universitar selectat
+	$an = mysqli_query($connect, "SELECT Id FROM an_invatamant WHERE Nume = '$anUniv' "); 
+	$rowsAn = mysqli_fetch_row($an);
 
 	$result = mysqli_query($connect, "SELECT * FROM plan_invatamant WHERE Id_an_invatamant='$rowsAn[0]' AND An_studiu='$an_invatamant' ");
 	if(empty(mysqli_fetch_row($result))) {
@@ -94,7 +92,8 @@ if (strpos($menuItem, 'Plan de invatamant') !== false && strpos($action, 'Vizual
 	</form>
 	<?php }
 } else if(strpos($menuItem, 'Nota') !== false && strpos($action, 'Vizualizare') !== false) {
-	$result = mysqli_query($connect, "SELECT * FROM nota_comanda WHERE an_studiu = '$an_invatamant' ");
+	$serie = $_POST['Serie'];
+	$result = mysqli_query($connect, "SELECT * FROM nota_comanda WHERE Id_serie IN (SELECT Id FROM Serie WHERE Nume = '$serie') ");
 	if(empty(mysqli_fetch_row($result))) {
 	?>
 	<p> Momentan nu exista nota de comanda in baza de date pentru valorile selectate. </p>
